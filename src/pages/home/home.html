@@ -1,14 +1,40 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+    <ion-navbar color="primary">
+      <ion-title align="center">
+      Git Profile Search
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+
+  <ion-content padding>
+  <ion-searchbar floating (ionInput)="OnInit($event) "> Search</ion-searchbar>
+   
+  
+   <ion-grid >
+  <ion-row>
+    <ion-col responsive *ngFor = "let profile of profiles?.items" col-6 >
+     <ion-card >
+     		
+  <ion-item>
+    <ion-avatar item-start>
+      <img [src] = "profile?.avatar_url" alt="" />
+    </ion-avatar>
+  </ion-item>
+
+  <ion-card-content>
+    <ion-card-header> Name : {{profile.login}}</ion-card-header>
+    <ion-card-header> Score : {{profile.score}}</ion-card-header>
+  </ion-card-content>
+
+
+</ion-card>
+    </ion-col>
+   
+  </ion-row>
+
+  </ion-grid> 
+  </ion-content>
+  
